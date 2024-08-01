@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private float moveInputX;
+
+    [SerializeField] private Animator anim;
+    [SerializeField] private SpriteRenderer playerSprite;
     
     void Start()
     {
@@ -23,6 +26,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         moveInputX = Input.GetAxisRaw("Horizontal");
+
+        anim.SetBool("isWalking", moveInputX != 0);
+        anim.SetBool("isJumping", !IsGrounded());
+        playerSprite.flipX = moveInputX < 0;
         
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
