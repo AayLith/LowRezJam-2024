@@ -6,7 +6,7 @@ public class Monster : MonoBehaviour
 {
     public static LinkedList<Monster> allMonsters = new LinkedList<Monster> ();
 
-    public float speed { get { return Mathf.Max ( 0 , _speed * speedmod ); } }
+    public float speed { get { return Mathf.Max ( _speed * 0.1f , _speed * speedmod ); } }
     public float _speed = 10;
     public float speedmod = 1;
     public int pathindex = 0;
