@@ -2,59 +2,74 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent ( typeof ( Rigidbody2D ) )]
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed;
-    
+    public static PlayerController instance;
+
+    public float moveSpeed = 1;
     public float jumpForce = 50;
     public LayerMask groundLayer;
     private float checkDistance = 5; // Distance to check for ground
 
     private Rigidbody2D rb;
     private float moveInputX;
+    private Vector2 lastPos;
 
     [SerializeField] private Animator anim;
     [SerializeField] private SpriteRenderer playerSprite;
-    
-    void Start()
+
+    private void Awake ()
     {
-        rb = this.GetComponent<Rigidbody2D>();
+        instance = this;
     }
 
-    
-    void Update()
+    void Start ()
     {
-        moveInputX = Input.GetAxisRaw("Horizontal");
+        rb = this.GetComponent<Rigidbody2D> ();
+        lastPos = transform.position;
+    }
 
-        anim.SetBool("isWalking", moveInputX != 0);
-        anim.SetBool("isJumping", !IsGrounded());
+
+    void Update ()
+    {
+        moveInputX = Input.GetAxisRaw ( "Horizontal" );
+
+        anim.SetBool ( "isWalking" , moveInputX != 0 );
+        anim.SetBool ( "isJumping" , rb.velocity.y > 0.1f );// !IsGrounded () );
         playerSprite.flipX = moveInputX < 0;
-        
-        if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        transform.rotation = Quaternion.identity;
+
+        if ( Input.GetKeyDown ( KeyCode.Space ) && IsGrounded () )
         {
-            Jump();
+            Jump ();
         }
+
+        lastPos = transform.position;
     }
 
-    void FixedUpdate()
+    void FixedUpdate ()
     {
-        rb.velocity = new Vector2(moveInputX * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2 ( moveInputX * moveSpeed , rb.velocity.y );
+        // rb.transform.position = new Vector3 ( rb.transform.position.x , rb.transform.position.y , 0 );
     }
 
-    private bool IsGrounded()
+    private bool IsGrounded ()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, checkDistance, groundLayer);
-        if (hit.collider != null)
+        Debug.DrawRay ( transform.position , Vector3.down * checkDistance , Color.red , 100f , false );
+        RaycastHit2D hit = Physics2D.Raycast ( transform.position , Vector2.down , checkDistance , groundLayer );
+        if ( hit.collider != null )
         {
             return true;
         }
+        if ( Mathf.Abs ( lastPos.y ) - Mathf.Abs ( transform.position.y ) < 0.05f && rb.velocity.y <= 0.1f )
+            return true;
         return false;
     }
 
-    private void Jump()
+    private void Jump ()
     {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        rb.velocity = new Vector2 ( rb.velocity.x , jumpForce );
     }
 
     /*void OnDrawGizmos()

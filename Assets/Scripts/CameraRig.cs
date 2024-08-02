@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class CameraRig : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float speed = 5;
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate ()
     {
-        
+        //transform.position = PlayerController.instance.transform.position;
+        transform.position = Vector3.Lerp ( transform.position , PlayerController.instance.transform.position , speed * Time.deltaTime );
+        //transform.position = new Vector3 ( Mathf.Ceil ( transform.position.x ) , Mathf.Ceil ( transform.position.y ) , transform.position.z );
     }
 }
