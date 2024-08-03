@@ -29,19 +29,22 @@ public class BatteryLightning : Projectile
 
     public void set ( float dmg , Battery first , Battery second , float dist )
     {
-        Vector3 diff = second.transform.position - first.transform.position;
+        // float dist = Vector3.Distance ( first.transform.position , second.transform.position );
+        Vector3 diff = new Vector3 ( Mathf.Abs ( second.transform.position.x - first.transform.position.x ) ,
+                                        Mathf.Abs ( second.transform.position.y - first.transform.position.y ) , 0 );
+        Vector3 diff2 = second.transform.position - first.transform.position;
 
         damages = dmg;
 
         line.positionCount = ( int ) ( dist / stepSkip ) + 2;
-        col.size = new Vector2 ( Mathf.Max ( 1 , diff.x ) , Mathf.Max ( 1 , diff.y ) );
-        Vector3 step = diff / line.positionCount;
+        col.size = new Vector2 ( Mathf.Max ( 4 , diff.x ) , Mathf.Max ( 4 , diff.y ) );
+        Vector3 step = diff2 / line.positionCount;
 
-        line.SetPosition ( 0 , first.transform.position + new Vector3 ( 0 , 4 , 0 ) );
+        line.SetPosition ( 0 , first.transform.position + new Vector3 ( 0 , 7 , 0 ) );
         for ( int i = 1 ; i < line.positionCount - 1 ; i++ )
         {
-            line.SetPosition ( i , first.transform.position + step * i + ( ( Vector3 ) Random.insideUnitCircle * randomness ) + new Vector3 ( 0 , 4 , 0 ) );
+            line.SetPosition ( i , first.transform.position + step * i + ( ( Vector3 ) Random.insideUnitCircle * randomness ) + new Vector3 ( 0 , 7 , 0 ) );
         }
-        line.SetPosition ( line.positionCount - 1 , second.transform.position + new Vector3 ( 0 , 4 , 0 ) );
+        line.SetPosition ( line.positionCount - 1 , second.transform.position + new Vector3 ( 0 , 7 , 0 ) );
     }
 }

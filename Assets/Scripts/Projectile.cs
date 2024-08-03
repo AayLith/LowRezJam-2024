@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public float speed;
     public float damages;
     public GameObject poof;
+    public bool destroyOnHit = true;
 
     void FixedUpdate ()
     {
@@ -17,7 +18,9 @@ public class Projectile : MonoBehaviour
     {
         try { collision.GetComponent<Monster> ().takeDamages ( damages ); }
         catch { }
-        Instantiate ( poof , transform.position , transform.rotation );
-        Destroy ( gameObject );
+        if ( poof )
+            Instantiate ( poof , transform.position , transform.rotation );
+        if ( destroyOnHit )
+            Destroy ( gameObject );
     }
 }

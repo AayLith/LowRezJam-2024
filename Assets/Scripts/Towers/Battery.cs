@@ -17,8 +17,8 @@ public class BatteryLink
         second = f;
         first = s;
         dist = Vector3.Distance ( f.transform.position , s.transform.position );
-        dmg = f.damages * f.damagesDistMult;
-        reload = f.reload * f.reloadDistMult;
+        dmg = f.damages * dist * f.damagesDistMult;
+        reload = f.reload * dist * f.reloadDistMult;
         nextShot = Time.time + 1;
     }
 }
@@ -79,8 +79,6 @@ public class Battery : Tower
         foreach ( BatteryLink bl in linkedBatteries )
         {
             if ( Time.time < bl.nextShot ) continue;
-
-            Debug.Log ( bl.nextShot );
 
             GameObject b = Instantiate ( bullet , new Vector3 ( 0 , 4 , 0 ) + ( bl.first.transform.position + bl.second.transform.position ) / 2 , transform.rotation );
             b.GetComponent<BatteryLightning> ().set ( bl.dmg , bl.first , bl.second , bl.dist );
