@@ -165,7 +165,7 @@ MonoBehaviour:
   placement: 0
   price: 5
   damages: 1
-  reload: 2.5
+  reload: 5
   power: {x: -7500, y: 6000}
   waitForTrigger: 1
   menuSprite: {fileID: 21300000, guid: fb9121227c83e78408e55f774aa25b84, type: 3}
