@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 6885350109070838992}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26, y: -5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -77,11 +77,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1ca7d0d0b08b242bba4f27073712ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damages: 1
+  placement: 0
+  price: 5
+  damages: 3
+  reload: 3
+  power: {x: 0, y: 0}
+  waitForTrigger: 0
+  menuSprite: {fileID: 21300000, guid: bfaf31dabe828584ba562bd08936958d, type: 3}
+  trigger: {fileID: 0}
   tip: {fileID: 4831673505490678395}
   bullet: {fileID: 8777299498783352844, guid: ef691aad70d4d004fb499bad4d42d5d3, type: 3}
   flash: {fileID: 3628715702104063498, guid: 70741f501f7872741b2036060e6a8e1e, type: 3}
-  reload: 3
 --- !u!1 &8427041628525540591
 GameObject:
   m_ObjectHideFlags: 0

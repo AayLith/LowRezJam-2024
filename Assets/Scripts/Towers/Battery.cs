@@ -27,11 +27,8 @@ public class Battery : Tower
 {
     public static List<Battery> allBatteries = new List<Battery> ();
 
-    public float damages = 1;
+    [Header ( "Battery" )]
     public float damagesDistMult;
-    public GameObject bullet;
-    public GameObject flash;
-    public float reload = 1;
     public float reloadDistMult;
 
     // battery stuff
@@ -74,7 +71,7 @@ public class Battery : Tower
         linkedBatteries.Remove ( link );
     }
 
-    private void Update ()
+    protected override void Update ()
     {
         foreach ( BatteryLink bl in linkedBatteries )
         {

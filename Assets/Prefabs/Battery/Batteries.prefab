@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2429866845643504017}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -129,10 +129,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eeb208e52dd1e3409c46ba3cc461d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  placement: 0
+  price: 5
   damages: 1
-  damagesDistMult: 0.025
+  reload: 1
+  power: {x: 0, y: 0}
+  waitForTrigger: 0
+  menuSprite: {fileID: 21300000, guid: 1e6b711716fd35548ba5fcdcd8131b14, type: 3}
+  trigger: {fileID: 0}
+  tip: {fileID: 0}
   bullet: {fileID: 2106391668766223796, guid: f62a6e7f20146c543ba39ac75859424d, type: 3}
   flash: {fileID: 0}
-  reload: 1
+  damagesDistMult: 0.025
   reloadDistMult: 0.1
   linkedBatteries: []
