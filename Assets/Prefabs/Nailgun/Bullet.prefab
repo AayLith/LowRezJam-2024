@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: -1871248188622754894}
   - component: {fileID: -5451257061693149302}
   - component: {fileID: 5936419854961369081}
+  - component: {fileID: 1292614238369671100}
   m_Layer: 15
   m_Name: Bullet
   m_TagString: Untagged
@@ -134,6 +135,9 @@ MonoBehaviour:
   speed: 50
   damages: 2
   poof: {fileID: 9120425516416078139, guid: 596d9e013a0cba14084170744e71cbab, type: 3}
+  destroyOnHit: 1
+  power: {x: 0, y: 0}
+  lifeTime: 999
 --- !u!61 &-5451257061693149302
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -206,3 +210,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1292614238369671100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8777299498783352844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 619131027
+      Data2: 1117279277
+      Data3: -662498146
+      Data4: -101365139
+    Path: event:/Nailgun
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

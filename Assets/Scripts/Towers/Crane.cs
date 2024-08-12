@@ -11,74 +11,83 @@ public class Crane : Tower
     float maxHeight;
     public float dropStun = 0.25f;
     Transform caught;
-    List<Collider2D> collisions = new List<Collider2D> ();
+    List<Collider2D> collisions = new List<Collider2D>();
     Vector3 hookPos;
 
-    private void Awake ()
+
+    private void Awake()
     {
         maxHeight = transform.position.y;
-        RaycastHit2D hit = Physics2D.Raycast ( transform.position , Vector2.down , 1000 , LayerMask.GetMask ( "Ground" ) );
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1000, LayerMask.GetMask("Ground"));
         minHeight = hit.point.y + 4;
         hookPos = hook.position;
-        StartCoroutine ( crane () );
+        StartCoroutine(crane());
         line.positionCount = 2;
-        line.SetPosition ( 0 , transform.position );
-        line.SetPosition ( 1 , hook.position );
+        line.SetPosition(0, transform.position);
+        line.SetPosition(1, hook.position);
     }
 
-    protected override void Update ()
+    protected override void Update()
     {
-        line.SetPosition ( 0 , transform.position );
-        line.SetPosition ( 1 , hook.position );
+        line.SetPosition(0, transform.position);
+        line.SetPosition(1, hook.position);
     }
 
-    IEnumerator crane ()
+    IEnumerator crane()
     {
-        while ( true )
+        while (true)
         {
-            if ( caught != null )
+            if (caught != null)
             {
-                if ( caught.GetComponent<Monster> ().stunned == false || hookPos.y >= maxHeight )
+                if (caught.GetComponent<Monster>().stunned == false || hookPos.y >= maxHeight)
                 {
-                    caught.GetComponent<Monster> ().stunned = false;
+                    caught.GetComponent<Monster>().stunned = false;
                     caught = null;
-                    yield return new WaitForSeconds ( dropStun );
+                    yield return new WaitForSeconds(dropStun);
                 }
                 else
                 {
+
                     hook.position += Vector3.up * hookSpeed * Time.fixedDeltaTime;
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Crane");
+
                     caught.position = hook.position;
+
                 }
             }
             else
             {
                 hook.position -= Vector3.up * hookSpeed * Time.fixedDeltaTime;
-                if ( collisions.Count > 0 )
+
+                if (collisions.Count > 0)
                 {
-                    caught = collisions[ 0 ].transform;
+                    caught = collisions[0].transform;
                     caught.position = hook.position - Vector3.up * 8;
-                    caught.GetComponent<Monster> ().stunned = true;
+                    caught.GetComponent<Monster>().stunned = true;
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Crane");
                 }
             }
 
-            hook.position = new Vector3 ( hook.position.x , Mathf.Clamp ( hook.position.y , minHeight , maxHeight ) , hook.position.z );
+            hook.position = new Vector3(hook.position.x, Mathf.Clamp(hook.position.y, minHeight, maxHeight), hook.position.z);
+
 
             hookPos = hook.position;
-            yield return new WaitForFixedUpdate ();
+
+            yield return new WaitForFixedUpdate();
         }
     }
 
-    private void FixedUpdate ()
+    private void FixedUpdate()
     {
     }
 
-    private void OnTriggerEnter2D ( Collider2D collision )
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        collisions.Add ( collision );
+        collisions.Add(collision);
     }
 
-    private void OnTriggerExit2D ( Collider2D collision )
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        collisions.Remove ( collision );
+        collisions.Remove(collision);
     }
 }

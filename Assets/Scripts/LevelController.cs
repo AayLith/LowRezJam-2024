@@ -43,6 +43,7 @@ public class LevelController : MonoBehaviour
         if ( index >= waves.Count )
         {
             // Victory
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Victory");
             yield break;
         }
 
