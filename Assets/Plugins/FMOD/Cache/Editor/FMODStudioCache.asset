@@ -69,11 +69,38 @@ MonoBehaviour:
   Path: ../../fmod_project/Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638590733791384974
+  lastModified: 638590759925632716
   FileSizes:
   - Name: 
-    Value: 1395808
+    Value: 1398592
   Exists: 1
+--- !u!114 &-3438490759529500925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Place_tower
+  m_EditorClassIdentifier: 
+  Path: event:/Place_tower
+  Guid:
+    Data1: -1970925766
+    Data2: 1263121458
+    Data3: 879812524
+    Data4: 1859495850
+  Banks:
+  - {fileID: -4407993345752710018}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 116
 --- !u!114 &-1857638198521284527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,12 +149,13 @@ MonoBehaviour:
   - {fileID: 8048844794642601678}
   - {fileID: -5520573017234411168}
   - {fileID: -6614625274889698069}
+  - {fileID: -3438490759529500925}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4407993345752710018}
   StringsBanks:
   - {fileID: 9148935508232165803}
-  cacheTime: 638590733791397809
+  cacheTime: 638590759925649703
   cacheVersion: 131619
 --- !u!114 &3279222824406039340
 MonoBehaviour:
@@ -198,8 +226,8 @@ MonoBehaviour:
   Path: ../../fmod_project/Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638590733791397809
+  lastModified: 638590759925649703
   FileSizes:
   - Name: 
-    Value: 928
+    Value: 970
   Exists: 1

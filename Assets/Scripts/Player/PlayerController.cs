@@ -207,6 +207,7 @@ public class PlayerController : MonoBehaviour
                     if ( tile == null ) return;
                     else
                         tile = Tile.getTileBelow ( tile );
+                
                 break;
 
             case placements.ceiling:
@@ -241,6 +242,7 @@ public class PlayerController : MonoBehaviour
         changeMoney ( -tower.price );
         go.transform.position = tile.transform.position;
         tile.content = go;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Place_tower");
     }
 
     /*void OnDrawGizmos()
