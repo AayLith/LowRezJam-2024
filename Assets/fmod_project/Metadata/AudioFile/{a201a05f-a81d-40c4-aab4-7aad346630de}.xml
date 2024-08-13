@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a201a05f-a81d-40c4-aab4-7aad346630de}">
+		<property name="assetPath">
+			<value>wave_passed.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.2987755102040817</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{054c4d0b-0b17-4e4c-8f93-c302525ac61f}</destination>
+		</relationship>
+	</object>
+</objects>

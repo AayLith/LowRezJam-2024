@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{cf44f790-c585-43b7-a85e-dc23d804863d}">
+		<property name="assetPath">
+			<value>Detunized_WindTurbines_LatticeTower_03.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.7050937499999996</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{054c4d0b-0b17-4e4c-8f93-c302525ac61f}</destination>
+		</relationship>
+	</object>
+</objects>

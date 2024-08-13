@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f6294bc6-ef3b-415e-ae89-6e8526702ee2}">
+		<property name="assetPath">
+			<value>Lasers, Gun, Blaster, Laser, Boom, Small SND7294 2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.68982291666666662</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{054c4d0b-0b17-4e4c-8f93-c302525ac61f}</destination>
+		</relationship>
+	</object>
+</objects>
