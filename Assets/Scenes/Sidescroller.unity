@@ -53198,24 +53198,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portal: {fileID: 771224254}
-  waves:
-  - spawns:
-    - monster: {fileID: 4419047200451878862, guid: 555cd7562db88444ab256dd12e23f89d, type: 3}
-      amount: 1
-      delay: 1.5
-    - monster: {fileID: 4419047200451878862, guid: 555cd7562db88444ab256dd12e23f89d, type: 3}
-      amount: 2
-      delay: 1.5
-    - monster: {fileID: 4419047200451878862, guid: 555cd7562db88444ab256dd12e23f89d, type: 3}
-      amount: 1
-      delay: 1.5
-    - monster: {fileID: 4419047200451878862, guid: 555cd7562db88444ab256dd12e23f89d, type: 3}
-      amount: 2
-      delay: 1.5
-    - monster: {fileID: 4419047200451878862, guid: 555cd7562db88444ab256dd12e23f89d, type: 3}
-      amount: 3
-      delay: 1.5
-  waveDelay: 3
+  spawns:
+  - monster: {fileID: 4419047200451878862, guid: 555cd7562db88444ab256dd12e23f89d, type: 3}
+    weight: 14
+  - monster: {fileID: 4419047200451878862, guid: e44daba76fa97be4997669cfbf3928d8, type: 3}
+    weight: 1
+  - monster: {fileID: 4419047200451878862, guid: 64ca8ab553a8d6b48ba7c157cc3fa0ab, type: 3}
+    weight: 5
+  minWave: 5
+  maxWave: 10
+  minDelay: 5
+  maxDelay: 10
 --- !u!4 &1584196904
 Transform:
   m_ObjectHideFlags: 0

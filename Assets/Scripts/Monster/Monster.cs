@@ -18,13 +18,19 @@ public class Monster : MonoBehaviour
 
     private Rigidbody2D rb;
     private float gravity;
+    LinkedListNode<Monster> node;
 
     private void Awake ()
     {
         cur_health = max_health;
-        allMonsters.AddFirst ( this );
+        node = allMonsters.AddFirst ( this );
         rb = GetComponent<Rigidbody2D> ();
         gravity = rb.gravityScale;
+    }
+
+    private void OnDestroy ()
+    {
+        allMonsters.Remove ( node );
     }
 
     private void Update ()
