@@ -33,9 +33,11 @@ public class LevelController : MonoBehaviour
     //public float waveDelay = 3;
 
     public Spawn[] spawns;
-    List<Monster> monsters = new List<Monster>();
+    List<Monster> monsters = new List<Monster> ();
     public int minWave = 5;
     public int maxWave = 10;
+    int increment = 0;
+    public int incrementSpeed = 0;
     public float minDelay = 5;
     public float maxDelay = 10;
 
@@ -44,12 +46,16 @@ public class LevelController : MonoBehaviour
         foreach ( Spawn s in spawns )
             for ( int i = 0 ; i < s.weight ; i++ )
                 monsters.Add ( s.monster );
+    }
+
+    public void startclic ()
+    {
         StartCoroutine ( start () );
     }
 
     IEnumerator start ()
     {
-        yield return new WaitForSeconds ( 10 );
+        yield return new WaitForSeconds ( 1 );
         StartCoroutine ( waveSpawn ( 0 ) );
     }
 
@@ -58,14 +64,15 @@ public class LevelController : MonoBehaviour
         int i = 0;
         while ( i < 4096 )
         {
-            for ( int j = 0 ; j < UnityEngine.Random.Range ( minWave , maxWave ) ; j++ )
+            for ( int j = 0 ; j < UnityEngine.Random.Range ( minWave , maxWave ) + increment ; j++ )
             {
                 int r = UnityEngine.Random.Range ( 0 , monsters.Count );
                 Instantiate ( monsters[ r ] , portal.transform.position , Quaternion.identity , null );
                 i++;
-                yield return new WaitForSeconds ( 0.2f );
+                yield return new WaitForSeconds ( 0.4f );
             }
             yield return new WaitForSeconds ( UnityEngine.Random.Range ( minDelay , maxDelay ) );
+            increment += incrementSpeed;
         }
 
         while ( Monster.allMonsters.Count > 0 )

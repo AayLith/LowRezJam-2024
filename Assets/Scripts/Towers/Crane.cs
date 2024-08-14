@@ -15,7 +15,7 @@ public class Crane : Tower
     Vector3 hookPos;
 
 
-    private void Awake()
+    private void Start()
     {
         maxHeight = transform.position.y;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1000, LayerMask.GetMask("Ground"));
@@ -43,6 +43,7 @@ public class Crane : Tower
                 {
                     caught.GetComponent<Monster>().stunned = false;
                     caught = null;
+                    anim.SetTrigger ( "coil" );
                     yield return new WaitForSeconds(dropStun);
                 }
                 else
@@ -51,7 +52,7 @@ public class Crane : Tower
                     hook.position += Vector3.up * hookSpeed * Time.fixedDeltaTime;
                     FMODUnity.RuntimeManager.PlayOneShot("event:/Crane");
 
-                    caught.position = hook.position;
+                    caught.position = hook.position - Vector3.up * 8;
 
                 }
             }
@@ -65,6 +66,7 @@ public class Crane : Tower
                     caught.position = hook.position - Vector3.up * 8;
                     caught.GetComponent<Monster>().stunned = true;
                     FMODUnity.RuntimeManager.PlayOneShot("event:/Crane");
+                    anim.SetTrigger ( "attack" );
                 }
             }
 

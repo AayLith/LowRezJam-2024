@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placement: 0
   price: 5
-  damages: 3
+  damages: 2
   reload: 3
   power: {x: 0, y: 0}
   waitForTrigger: 0
@@ -88,6 +88,7 @@ MonoBehaviour:
   tip: {fileID: 4831673505490678395}
   bullet: {fileID: 8777299498783352844, guid: ef691aad70d4d004fb499bad4d42d5d3, type: 3}
   flash: {fileID: 3628715702104063498, guid: 70741f501f7872741b2036060e6a8e1e, type: 3}
+  anim: {fileID: 0}
 --- !u!1 &8427041628525540591
 GameObject:
   m_ObjectHideFlags: 0

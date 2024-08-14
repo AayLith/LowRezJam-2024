@@ -37,13 +37,17 @@ public class BatteryLightning : Projectile
         damages = dmg;
 
         line.positionCount = ( int ) ( dist / stepSkip ) + 2;
-        col.size = new Vector2 ( Mathf.Max ( 4 , diff.x ) , Mathf.Max ( 4 , diff.y ) );
+        col.size = new Vector2 ( Vector3.Distance ( second.transform.position , first.transform.position ) , 4 );
+
+        var dir = second.transform.position - first.transform.position;
+        transform.rotation = Quaternion.FromToRotation ( Vector3.right , dir );
+
         Vector3 step = diff2 / line.positionCount;
 
         line.SetPosition ( 0 , first.transform.position + new Vector3 ( 0 , 7 , 0 ) );
         for ( int i = 1 ; i < line.positionCount - 1 ; i++ )
         {
-            line.SetPosition ( i , first.transform.position + step * i + ( ( Vector3 ) Random.insideUnitCircle * randomness ) + new Vector3 ( 0 , 7 , 0 ) );
+            line.SetPosition ( i , first.transform.position + step * i + ( ( Vector3 ) Random.insideUnitCircle * randomness ) + new Vector3 ( 0 , 4 , 0 ) );
         }
         line.SetPosition ( line.positionCount - 1 , second.transform.position + new Vector3 ( 0 , 7 , 0 ) );
     }

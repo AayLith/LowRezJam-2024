@@ -22,12 +22,17 @@ public class Tower : MonoBehaviour
     public GameObject tip;
     public GameObject bullet;
     public GameObject flash;
+    public Animator anim;
 
     virtual protected void Update ()
     {
         if ( Time.time < nextShot ) return;
         if ( trigger != null && waitForTrigger && trigger.collisions.Count == 0 ) return;
 
+        if ( anim )
+        {
+            anim.SetTrigger ( "attack" );
+        }
         GameObject b = Instantiate ( bullet , tip.transform.position , transform.rotation );
         b.GetComponent<Projectile> ().damages = damages;
         b.GetComponent<Projectile> ().power = power;

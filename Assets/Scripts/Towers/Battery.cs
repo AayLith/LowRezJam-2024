@@ -34,8 +34,40 @@ public class Battery : Tower
     // battery stuff
     public List<BatteryLink> linkedBatteries = new List<BatteryLink> ();
 
-    private void Awake ()
+    void connectBatteries ()
     {
+        linkedBatteries.Clear ();
+        foreach ( Battery b in allBatteries )
+            b.linkedBatteries.Clear ();
+
+        allBatteries.Add ( this );
+        if ( allBatteries.Count < 2 ) return;
+        if ( allBatteries.Count == 2 )
+        {
+            BatteryLink bl = new BatteryLink ( allBatteries[ 0 ] , allBatteries[ 1 ] );
+            // Add the link
+            bl.first.linkedBatteries.Add ( bl );
+            bl.second.linkedBatteries.Add ( bl );
+            return;
+        }
+
+        Quick_Sort ( allBatteries , 0 , allBatteries.Count - 1 );
+
+        for ( int i = 0 ; i < allBatteries.Count - 1 ; i++ )
+        {
+            BatteryLink bl = new BatteryLink ( allBatteries[ i ] , allBatteries[ i + 1 ] );
+
+            // Add the link
+            bl.first.linkedBatteries.Add ( bl );
+            bl.second.linkedBatteries.Add ( bl );
+        }
+    }
+
+    private void Start ()
+    {
+        connectBatteries ();
+
+        /*
         for ( int i = 0 ; i < allBatteries.Count ; i++ )
         {
             // if ( allBatteries[ i ] == this ) continue;
@@ -48,22 +80,13 @@ public class Battery : Tower
                 bl.first.linkedBatteries.Add ( bl );
                 bl.second.linkedBatteries.Add ( bl );
             }
-        }
+        }*/
 
-        allBatteries.Add ( this );
     }
 
     private void OnDestroy ()
     {
-        foreach ( BatteryLink bl in linkedBatteries )
-        {
-            // Disconnect batteries
-            if ( bl.first == this || bl.second == this )
-            {
-                bl.first.removeLink ( bl );
-                bl.second.removeLink ( bl );
-            }
-        }
+        connectBatteries ();
     }
 
     public void removeLink ( BatteryLink link )
@@ -82,6 +105,64 @@ public class Battery : Tower
             if ( flash )
                 Instantiate ( flash , transform.position , transform.rotation );
             bl.nextShot = Time.time + bl.reload;
+        }
+    }
+
+    private static void Quick_Sort ( List<Battery> arr , int left , int right )
+    {
+        // Check if there are elements to sort
+        if ( left < right )
+        {
+            // Find the pivot index
+            int pivot = Partition ( arr , left , right );
+
+            // Recursively sort elements on the left and right of the pivot
+            if ( pivot > 1 )
+            {
+                Quick_Sort ( arr , left , pivot - 1 );
+            }
+            if ( pivot + 1 < right )
+            {
+                Quick_Sort ( arr , pivot + 1 , right );
+            }
+        }
+    }
+
+    // Method to partition the array
+    private static int Partition ( List<Battery> arr , int left , int right )
+    {
+        // Select the pivot element
+        Battery pivot = arr[ left ];
+
+        // Continue until left and right pointers meet
+        while ( true )
+        {
+            // Move left pointer until a value greater than or equal to pivot is found
+            while ( arr[ left ].transform.position.x <= pivot.transform.position.x )
+            {
+                left++;
+            }
+
+            // Move right pointer until a value less than or equal to pivot is found
+            while ( arr[ right ].transform.position.x > pivot.transform.position.x )
+            {
+                right--;
+            }
+
+            // If left pointer is still smaller than right pointer, swap elements
+            if ( left < right )
+            {
+                if ( arr[ left ] == arr[ right ] ) return right;
+
+                Battery temp = arr[ left ];
+                arr[ left ] = arr[ right ];
+                arr[ right ] = temp;
+            }
+            else
+            {
+                // Return the right pointer indicating the partitioning position
+                return right;
+            }
         }
     }
 }

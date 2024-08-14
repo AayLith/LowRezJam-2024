@@ -50,12 +50,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  loot: 1
+  loot: 5
   _speed: 10
   speedmod: 1
   raycastOffset: 0.01
   cur_health: 0
-  max_health: 5
+  max_health: 50
   stunned: 0
 --- !u!50 &4885158635477185810
 Rigidbody2D:
@@ -403,8 +403,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0, g: 0.9340892, b: 1, a: 1}
-      maxColor: {r: 0, g: 1, b: 0.6489663, a: 1}
+      minColor: {r: 0, g: 0.51556826, b: 1, a: 1}
+      maxColor: {r: 1, g: 0, b: 0.56206036, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5038,7 +5038,7 @@ Transform:
   m_GameObject: {fileID: 4274787566875676409}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5111,7 +5111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e82f16ee3fe664a83a1da84383f464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wave: {x: 0, y: 0.2, z: 0}
+  wave: {x: 0, y: 0.05, z: 0}
   speed: 5
 --- !u!1 &8437552354932740784
 GameObject:
@@ -5335,8 +5335,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0, g: 0.9340892, b: 1, a: 1}
-      maxColor: {r: 0, g: 1, b: 0.6489663, a: 1}
+      minColor: {r: 0, g: 0.51556826, b: 1, a: 1}
+      maxColor: {r: 1, g: 0, b: 0.56206036, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10165,8 +10165,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0, g: 0.9340892, b: 1, a: 1}
-      maxColor: {r: 0, g: 1, b: 0.6489663, a: 1}
+      minColor: {r: 0, g: 0.51556826, b: 1, a: 1}
+      maxColor: {r: 1, g: 0, b: 0.56206036, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

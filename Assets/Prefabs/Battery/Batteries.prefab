@@ -140,6 +140,6 @@ MonoBehaviour:
   tip: {fileID: 0}
   bullet: {fileID: 2106391668766223796, guid: f62a6e7f20146c543ba39ac75859424d, type: 3}
   flash: {fileID: 0}
-  damagesDistMult: 0.025
+  damagesDistMult: 0.01
   reloadDistMult: 0.1
   linkedBatteries: []

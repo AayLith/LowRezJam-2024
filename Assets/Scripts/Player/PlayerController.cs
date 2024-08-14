@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer playerSprite;
 
     [Header ( "UI" )]
-    int money = 25;
+    int money = 50;
     int lives = 100;
     public Text livesText;
     public Text moneyText;
