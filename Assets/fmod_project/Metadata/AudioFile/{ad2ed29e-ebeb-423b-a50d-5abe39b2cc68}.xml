@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{ad2ed29e-ebeb-423b-a50d-5abe39b2cc68}">
+		<property name="assetPath">
+			<value>Fight, Impact, Punch, Kung Fu, Karate, Arcade Game x6 SND15345.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.2704375</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{054c4d0b-0b17-4e4c-8f93-c302525ac61f}</destination>
+		</relationship>
+	</object>
+</objects>

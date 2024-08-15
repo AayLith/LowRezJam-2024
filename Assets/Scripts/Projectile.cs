@@ -35,4 +35,11 @@ public class Projectile : MonoBehaviour
         if ( destroyOnHit )
             Destroy ( gameObject );
     }
+   /* void PlayPunchSound(string path)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(path, GetComponent<Transform>().position);
+    } */
+
+
 }
+

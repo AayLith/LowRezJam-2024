@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: Assets/fmod_project/Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638592004523345772
+  lastModified: 638593109487498276
   FileSizes: []
   Exists: 1
 --- !u!114 &-3438490759529500925
@@ -148,12 +148,13 @@ MonoBehaviour:
   - {fileID: -5520573017234411168}
   - {fileID: -6614625274889698069}
   - {fileID: -3438490759529500925}
+  - {fileID: 3974796032356110522}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4712570250717665069}
   StringsBanks:
   - {fileID: 8813019551586613523}
-  cacheTime: 638592004523345772
+  cacheTime: 638593109487508277
   cacheVersion: 131619
 --- !u!114 &3279222824406039340
 MonoBehaviour:
@@ -182,6 +183,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1050
+--- !u!114 &3974796032356110522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Punch
+  m_EditorClassIdentifier: 
+  Path: event:/Punch
+  Guid:
+    Data1: 1110459228
+    Data2: 1256505250
+    Data3: 147961495
+    Data4: -2086728552
+  Banks:
+  - {fileID: -4712570250717665069}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 270
 --- !u!114 &8048844794642601678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,8 +252,8 @@ MonoBehaviour:
   Path: Assets/fmod_project/Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638592004523345772
+  lastModified: 638593109487508277
   FileSizes:
   - Name: 
-    Value: 970
+    Value: 1016
   Exists: 1
