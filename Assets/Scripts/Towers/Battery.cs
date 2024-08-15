@@ -102,6 +102,7 @@ public class Battery : Tower
 
             GameObject b = Instantiate ( bullet , new Vector3 ( 0 , 4 , 0 ) + ( bl.first.transform.position + bl.second.transform.position ) / 2 , transform.rotation );
             b.GetComponent<BatteryLightning> ().set ( bl.dmg , bl.first , bl.second , bl.dist );
+            FMODUnity.RuntimeManager.PlayOneShot("event:/BatteryLightning", GetComponent<Transform>().position);
             if ( flash )
                 Instantiate ( flash , transform.position , transform.rotation );
             bl.nextShot = Time.time + bl.reload;

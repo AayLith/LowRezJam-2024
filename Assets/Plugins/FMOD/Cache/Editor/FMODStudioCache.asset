@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: Assets/fmod_project/Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638593109487498276
+  lastModified: 638593229319083860
   FileSizes: []
   Exists: 1
 --- !u!114 &-3438490759529500925
@@ -149,12 +149,13 @@ MonoBehaviour:
   - {fileID: -6614625274889698069}
   - {fileID: -3438490759529500925}
   - {fileID: 3974796032356110522}
+  - {fileID: 5066292830993694824}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4712570250717665069}
   StringsBanks:
   - {fileID: 8813019551586613523}
-  cacheTime: 638593109487508277
+  cacheTime: 638593229319103869
   cacheVersion: 131619
 --- !u!114 &3279222824406039340
 MonoBehaviour:
@@ -210,6 +211,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 270
+--- !u!114 &5066292830993694824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BatteryLightning
+  m_EditorClassIdentifier: 
+  Path: event:/BatteryLightning
+  Guid:
+    Data1: -1292598917
+    Data2: 1094728141
+    Data3: 1610546307
+    Data4: 619851815
+  Banks:
+  - {fileID: -4712570250717665069}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 771
 --- !u!114 &8048844794642601678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,8 +280,8 @@ MonoBehaviour:
   Path: Assets/fmod_project/Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638593109487508277
+  lastModified: 638593229319103869
   FileSizes:
   - Name: 
-    Value: 1016
+    Value: 1064
   Exists: 1
